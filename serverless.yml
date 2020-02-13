@@ -4,7 +4,7 @@ provider:
   name: aws
   runtime: java8
   memorySize: 1512
-  timeout: 60
+  timeout: 120
   stage: ${opt:stage,'dev'}
   region: ${opt:region, 'us-east-1'}
   profile: ${opt:profile, "default"}
@@ -19,8 +19,8 @@ package:
 functions:
   SpringBootPetStoreApi:
     package: 
-      artifact: target/serverless-spring-boot-example-1.0-SNAPSHOT-lambda-package.zip
-    handler: com.amazonaws.serverless.sample.springboot.StreamLambdaHandler::handleRequest
+      artifact: target/serverless-springboot2-example-1.0-SNAPSHOT-lambda-package.zip
+    handler: com.amazonaws.serverless.sample.springboot2.StreamLambdaHandler::handleRequest
     events:
       - http:
           path: /{proxy+}
